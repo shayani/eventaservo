@@ -37,6 +37,7 @@ Rails.application.routes.draw do
       get 'uzanto/:id/rekrei_api_kodon', to: 'users#rekrei_api_kodon', as: 'rekrei_api_kodon'
     end
     namespace :v2 do
+      get 'eventoj/e/:ligilo', to: 'eventoj#evento'
       get 'eventoj', to: 'eventoj#index'
     end
   end
