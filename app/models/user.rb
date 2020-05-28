@@ -42,7 +42,7 @@ class User < ApplicationRecord
           user.password   = Devise.friendly_token[0, 20]
           user.name       = auth.info.name # assuming the user model has a name
           user.image      = auth.info.image # assuming the user model has an image
-          user.country_id = Country.first.id
+          user.country_id = 99999
           user.skip_confirmation!
         end
       NovaUzantoSciigoJob.perform_now(return_user)
