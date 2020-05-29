@@ -8,8 +8,6 @@ module Api
       private
 
       def authorization
-        return true if Rails.env.development? && params[:d].present? # DEBUG ONLY
-
         jwt_token = request.headers['Authorization'].gsub(/Bearer /,"")
         return false if jwt_token.nil?
 

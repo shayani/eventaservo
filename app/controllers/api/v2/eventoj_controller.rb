@@ -5,7 +5,7 @@ module Api
     class EventojController < ApiController
 
       def index
-        @eventoj = Event.venontaj.order(:date_start).limit(5)
+        @eventoj = Event.venontaj.order(:date_start).limit(6)
         render 'index.json.jbuilder'
       end
 

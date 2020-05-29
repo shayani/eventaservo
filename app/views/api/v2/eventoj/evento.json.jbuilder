@@ -6,3 +6,5 @@ json.flagoKodo @evento.country.code
 json.reta @evento.online
 json.enhavo @evento.enhavo.body.to_s
 json.ligilo @evento.ligilo
+json.retejo @evento.site
+json.retposhtadreso @evento.email
