@@ -3,6 +3,9 @@ json.priskribo @evento.description
 json.urbo @evento.city
 json.lando @evento.country.name
 json.flagoKodo @evento.country.code
+json.strato @evento.address
+json.plenaAdreso @evento.full_address
+json.horzono @evento.time_zone
 json.reta @evento.online
 json.enhavo @evento.enhavo.body.to_s
 json.ligilo @evento.ligilo
