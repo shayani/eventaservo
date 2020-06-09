@@ -7,7 +7,7 @@
         %br
         Estas senpage!
 
-    = link_to "Registriĝi per Facebook", user_facebook_omniauth_authorize_path, class: 'facebook-button col-12'
+    = link_to 'Registriĝi per Facebook', user_facebook_omniauth_authorize_path, class: 'facebook-button col-12'
     %br
     %br
     .text-divider.font-weight-bold.fg-color-grayDark AŬ
@@ -20,13 +20,17 @@
       .form-group
         = f.email_field :email, autocomplete: 'email', required: true, class: 'form-control', placeholder: 'Retpoŝtadreso'
       .form-group
-        = f.text_field :city, autocomplete: 'city', required: true, class: 'form-control', placeholder: 'Urbo'
+        = f.text_field :city, required: true, class: 'form-control', placeholder: 'Urbo'
       .form-group
         = f.select(:country_id, options_from_collection_for_select(Country.all, 'id', 'name'), {}, class: 'form-control select2-input')
       .form-group
-        = f.password_field :password, autocomplete: 'new-password', required: true, class: 'form-control', placeholder: 'Pasvorto'
+        = f.text_field :birthday, class: 'birthday form-control'
       .form-group
-        = f.password_field :password, autocomplete: 'new-password', required: true, class: 'form-control', placeholder: 'Pasvorto-konfirmado'
+        = f.text_field :ueacode, class: 'form-control', placeholder: 'UEA-kodo *ne deviga'
+      .form-group
+        = f.password_field :password, required: true, class: 'form-control', placeholder: 'Pasvorto'
+      .form-group
+        = f.password_field :password, required: true, class: 'form-control', placeholder: 'Pasvorto-konfirmado'
 
       .form-group
         = text_field_tag 'sekurfrazo', nil, autocomplete: 'off', required: true, class: 'form-control', placeholder: 'Kiel nomiĝas nia lingvo?'

@@ -9,9 +9,16 @@
         = @uzanto.country.name if @uzanto.country
         = "(#{@uzanto.city})"
         - if user_signed_in? && current_user.admin?
-          %br/
-          = montras_retposhtadreson(@uzanto.email)
-        %br/
+          %p
+          .bg-color-yellowLight.p-1
+            Informoj por administranto:
+            %br
+            = montras_retposhtadreson(@uzanto.email)
+            %br
+            UEA-Kodo: #{@uzanto.ueacode}
+            %br
+            Naskiĝdato: #{@uzanto.birthday.strftime("%d/%m/%Y") if @uzanto.birthday}
+
         - if @uzanto.organizations.size > 0
           %p
             %hr/

@@ -70,11 +70,11 @@ GEM
     airbrussh (1.4.0)
       sshkit (>= 1.6.1, != 1.7.0)
     ansi (1.5.0)
-    autoprefixer-rails (9.7.5)
+    autoprefixer-rails (9.7.6)
       execjs
     bcrypt (3.1.13)
     bcrypt_pbkdf (1.0.1)
-    better_errors (2.6.0)
+    better_errors (2.7.1)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
@@ -83,16 +83,16 @@ GEM
       debug_inspector (>= 0.0.1)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
-    bootstrap (4.4.1)
+    bootstrap (4.3.1)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
-    browser (4.0.0)
+    browser (4.2.0)
     builder (3.2.4)
     bullet (6.1.0)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
-    byebug (11.1.1)
+    byebug (11.1.3)
     capistrano (3.12.1)
       airbrussh (>= 1.0.0)
       i18n
@@ -102,13 +102,13 @@ GEM
       capistrano (~> 3.1)
     capistrano-passenger (0.2.0)
       capistrano (~> 3.0)
-    capistrano-rails (1.4.0)
+    capistrano-rails (1.5.0)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
     capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
-    capybara (3.32.1)
+    capybara (3.32.2)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -117,7 +117,7 @@ GEM
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
     childprocess (3.0.0)
-    coderay (1.1.2)
+    coderay (1.1.3)
     coffee-rails (5.0.0)
       coffee-script (>= 2.2.0)
       railties (>= 5.2.0)
@@ -149,25 +149,25 @@ GEM
     ed25519 (1.2.4)
     erubi (1.9.0)
     execjs (2.7.0)
-    factory_bot (5.1.2)
+    factory_bot (5.2.0)
       activesupport (>= 4.2.0)
-    factory_bot_rails (5.1.1)
-      factory_bot (~> 5.1.0)
+    factory_bot_rails (5.2.0)
+      factory_bot (~> 5.2.0)
       railties (>= 4.2.0)
-    faker (2.11.0)
+    faker (2.12.0)
       i18n (>= 1.6, < 2)
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
-    ffi (1.12.2)
+    ffi (1.13.0)
     flag-icons-rails (3.4.6.1)
       sass-rails
-    font-awesome-sass (5.12.0)
+    font-awesome-sass (5.13.0)
       sassc (>= 1.11)
     fullcalendar-rails (3.9.0.0)
       jquery-rails (>= 4.0.5, < 5.0.0)
       jquery-ui-rails (>= 5.0.2)
       momentjs-rails (>= 2.9.0)
-    geocoder (1.6.2)
+    geocoder (1.6.3)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     haml (5.1.2)
@@ -182,19 +182,19 @@ GEM
     httparty (0.18.0)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
-    i18n (1.8.2)
+    i18n (1.8.3)
       concurrent-ruby (~> 1.0)
     icalendar (2.6.1)
       ice_cube (~> 0.16)
     ice_cube (0.16.3)
-    image_processing (1.10.3)
+    image_processing (1.11.0)
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
     invisible_captcha (1.0.1)
       rails (>= 4.2)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
-    jquery-rails (4.3.5)
+    jquery-rails (4.4.0)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
@@ -220,13 +220,13 @@ GEM
     method_source (1.0.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2019.1009)
+    mime-types-data (3.2020.0512)
     mimemagic (0.3.5)
     mini_magick (4.10.1)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    mini_racer (0.2.9)
-      libv8 (>= 6.9.411)
+    mini_racer (0.2.14)
+      libv8 (> 7.3)
     minitest (5.14.1)
     minitest-reporters (1.4.2)
       ansi
@@ -239,9 +239,9 @@ GEM
     multi_json (1.14.1)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
-    net-scp (2.0.0)
-      net-ssh (>= 2.6.5, < 6.0.0)
-    net-ssh (5.2.0)
+    net-scp (3.0.0)
+      net-ssh (>= 2.6.5, < 7.0.0)
+    net-ssh (6.0.2)
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
@@ -271,14 +271,14 @@ GEM
       addressable
       css_parser (>= 1.6.0)
       htmlentities (>= 4.0.0)
-    premailer-rails (1.11.0)
+    premailer-rails (1.11.1)
       actionmailer (>= 3)
       premailer (~> 1.7, >= 1.7.9)
-    public_suffix (4.0.4)
+    public_suffix (4.0.5)
     puma (4.3.5)
       nio4r (~> 2.0)
     rack (2.2.2)
-    rack-attack (6.2.2)
+    rack-attack (6.3.1)
       rack (>= 1.0, < 3)
     rack-contrib (2.2.0)
       rack (~> 2.0)
@@ -315,15 +315,15 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.20.3, < 2.0)
     rake (13.0.1)
-    rb-fsevent (0.10.3)
+    rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     redcarpet (3.5.0)
-    redis (4.1.3)
+    redis (4.1.4)
     regexp_parser (1.7.0)
     request_store (1.5.0)
       rack (>= 1.4)
-    responders (3.0.0)
+    responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
     ruby-progressbar (1.10.1)
@@ -333,7 +333,7 @@ GEM
     safe_yaml (1.0.5)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
-    sassc (2.2.1)
+    sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
       railties (>= 4.0.0)
@@ -360,13 +360,13 @@ GEM
       docile (~> 1.1)
       simplecov-html (~> 0.11)
     simplecov-html (0.12.2)
-    sitemap_generator (6.1.0)
+    sitemap_generator (6.1.2)
       builder (~> 3.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
       spring (>= 1.2, < 3.0)
-    sprockets (4.0.0)
+    sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.2.1)
@@ -380,19 +380,19 @@ GEM
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.10)
-    timezone (1.3.6)
+    timezone (1.3.7)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
     uniform_notifier (1.13.0)
-    vcr (5.1.0)
+    vcr (6.0.0)
     warden (1.2.8)
       rack (>= 2.0.6)
-    web-console (4.0.1)
+    web-console (4.0.2)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webdrivers (4.2.0)
+    webdrivers (4.4.1)
       nokogiri (~> 1.6)
       rubyzip (>= 1.3.0)
       selenium-webdriver (>= 3.0, < 4.0)
@@ -400,90 +400,89 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
-    webpacker (5.0.1)
+    webpacker (5.1.1)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
       semantic_range (>= 2.3.0)
     websocket-driver (0.7.2)
       websocket-extensions (>= 0.1.0)
-    websocket-extensions (0.1.4)
+    websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    yard (0.9.24)
+    yard (0.9.25)
     zeitwerk (2.3.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts-as-taggable-on
+  acts-as-taggable-on (~> 6.5)
   bcrypt_pbkdf
   better_errors
   binding_of_caller
   bootsnap (>= 1.4.2)
-  bootstrap (>= 4.3.1)
-  browser
+  bootstrap (~> 4.3.1)
+  browser (~> 4.0)
   bullet
   byebug
-  capistrano (~> 3.10)
+  capistrano (= 3.12.1)
   capistrano-bundler
   capistrano-passenger
   capistrano-rails (~> 1.4)
   capistrano-rvm
   capybara
   coffee-rails
-  daemons
-  delayed_job_active_record
+  daemons (~> 1.3)
+  delayed_job_active_record (~> 4.1)
   devise (>= 4.7.1)
-  diffy
+  diffy (~> 3.3)
   ed25519
   factory_bot_rails
   faker
-  flag-icons-rails
+  flag-icons-rails (~> 3.4)
   font-awesome-sass (~> 5)
-  fullcalendar-rails
-  geocoder
+  fullcalendar-rails (~> 3.9)
+  geocoder (~> 1.6)
   haml (~> 5)
   highcharts-rails (~> 6.0)
   hirb
-  httparty
-  icalendar
+  httparty (~> 0.18)
+  icalendar (~> 2.6)
   image_processing (~> 1.2)
-  invisible_captcha
+  invisible_captcha (~> 1.0)
   jbuilder (~> 2.5)
   jquery-rails (~> 4.3, >= 4.3.3)
   jquery-ui-rails (~> 6.0, >= 6.0.1)
-  jwt (~> 2.2)
-  leaflet-rails
+  leaflet-rails (~> 1.6.0)
   listen
   meta_request
-  mini_magick
-  mini_racer
+  mini_magick (~> 4.10)
+  mini_racer (~> 0.2)
   minitest-reporters
-  momentjs-rails
+  momentjs-rails (~> 2.20)
   nokogiri (>= 1.10.4)
-  omniauth-facebook
-  pagy
-  paper_trail
-  paper_trail-association_tracking
+  omniauth-facebook (~> 6.0)
+  pagy (~> 3.7.5)
+  paper_trail (~> 10.3)
+  paper_trail-association_tracking (~> 2.0)
   pg (~> 1.1, >= 1.1.3)
-  premailer-rails
+  premailer-rails (~> 1.11)
   puma (>= 4.3.1)
-  rack-attack
-  rack-cors
+  rack-attack (~> 6.2)
+  rack-cors (~> 1.1)
   rails (~> 6.0)
   rake
-  redcarpet
-  redis
+  redcarpet (~> 3.5)
+  redis (~> 4.1)
   sass-rails (~> 6)
   seed_dump
-  select2-rails
+  select2-rails (~> 4.0)
   selenium-webdriver
-  sentry-raven
+  sentry-raven (~> 3.0)
   simple_token_authentication (~> 1.0)
   simplecov
-  sitemap_generator
+  sitemap_generator (~> 6.1)
   social-share-button!
   spring
   spring-watcher-listen (~> 2.0.0)

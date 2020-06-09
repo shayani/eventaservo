@@ -95,6 +95,7 @@
             = form.label :time_zone, 'Horzono'
             - timezones = TZInfo::Timezone.all_country_zone_identifiers
             - timezones << @event.time_zone
+            - timezones << 'Etc/UTC'
             = form.select(:time_zone, options_for_select(timezones, @event.time_zone), {}, class: 'select2-input form-control')
 
         #malretaj_informoj

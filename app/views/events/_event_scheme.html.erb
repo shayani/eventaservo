@@ -1,0 +1,24 @@
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org/",
+	"@type": "Event",
+	"name": "<%= @event.title %>",
+	"description": "<%= @event.description %>",
+	"inLanguage": "eo",
+	"url": "<%= event_url(@event.ligilo) %>",
+	"startDate": "<%= @event.date_start.to_date %>",
+	"endDate": "<%= @event.date_end.to_date %>",
+	"eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "organizer": {
+    <% if @event.organizations.empty? %>
+        "@type": "Organization",
+        "name": "<%= @event.user.name %>",
+        "url": "<%= events_by_username_url(@event.user.username) %>"
+    <% else  %>
+        "@type": "Organization",
+        "name": "<%= @event.organizations.first.name %>",
+        "url": "<%= organization_url(@event.organizations.first.short_name) %>"
+    <% end  %>
+  }
+}
+</script>

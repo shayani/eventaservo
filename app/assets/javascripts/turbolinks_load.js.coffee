@@ -5,6 +5,7 @@ $ ->
     $.datepicker.regional['eo']
 
   $('.datepicker').mask '00/00/0000', placeholder: "__/__/____"
+  $('.birthday').mask '00/00/0000', placeholder: "Naskiĝdato (T/M/J) *ne deviga"
   $('.timemask').mask '00:00', placeholder: "__:__"
   $('.timemask').on 'focus click touchend', ->
     $(this)[0].setSelectionRange 0, 5

@@ -20,6 +20,16 @@
             = f.label :country_id
             = f.select(:country_id, options_from_collection_for_select(Country.not_online, 'id', 'name', @user.country_id), {}, class: 'form-control select2-input')
 
+      .row
+        .col-lg-6
+          .form-group
+            = f.label :birthday, 'Naskiĝdato'
+            = f.text_field :birthday, value: (resource.birthday.strftime("%d/%m/%Y") if resource.birthday?) , class: 'birthday form-control'
+        .col-lg-6
+          .form-group
+            = f.label :ueacode, 'UEA-kodo'
+            = f.text_field :ueacode, class: 'form-control', placeholder: '*ne deviga'
+
       .form-group
         = f.label :avatar
         %br

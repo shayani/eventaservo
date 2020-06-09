@@ -17,27 +17,27 @@ gem 'sass-rails', '~> 6'
 # gem 'mini_racer', platforms: :ruby
 gem 'webpacker', '~> 5.0'
 
-gem 'acts-as-taggable-on'
+gem 'acts-as-taggable-on', '~> 6.5'
 
-gem 'bootstrap', '>= 4.3.1'
+gem 'bootstrap', '~> 4.3.1'
 gem 'font-awesome-sass', '~> 5'
 gem 'haml', '~> 5'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
-gem 'mini_racer'
+gem 'mini_racer', '~> 0.2'
 
-gem 'select2-rails'
+gem 'select2-rails', '~> 4.0'
 
 # Kalendaroj
-gem 'fullcalendar-rails'
-gem 'icalendar'
-gem 'momentjs-rails'
+gem 'fullcalendar-rails', '~> 3.9'
+gem 'icalendar', '~> 2.6'
+gem 'momentjs-rails', '~> 2.20'
 
-gem 'mini_magick'
-gem 'omniauth-facebook'
+gem 'mini_magick', '~> 4.10'
+gem 'omniauth-facebook', '~> 6.0'
 
 # CSS kaj fasonado
-gem 'flag-icons-rails'
+gem 'flag-icons-rails', '~> 3.4'
 
 gem 'devise', '>= 4.7.1'
 gem 'pg', '~> 1.1', '>= 1.1.3'
@@ -62,31 +62,31 @@ gem 'yard'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-gem 'daemons'
-gem 'delayed_job_active_record'
+gem 'daemons', '~> 1.3'
+gem 'delayed_job_active_record', '~> 4.1'
 
-gem 'rack-attack'
-gem 'rack-cors', require: 'rack/cors'
+gem 'rack-attack', '~> 6.2'
+gem 'rack-cors', '~> 1.1', require: 'rack/cors'
 
-gem 'browser'
-gem 'diffy'
-gem 'geocoder'
+gem 'browser', '~> 4.0'
+gem 'diffy', '~> 3.3'
+gem 'geocoder', '~> 1.6'
 gem 'highcharts-rails', '~> 6.0'
 gem 'hirb'
 gem 'image_processing', '~> 1.2'
-gem 'invisible_captcha'
-gem 'leaflet-rails'
-gem 'pagy'
-gem 'paper_trail'
-gem 'paper_trail-association_tracking'
-gem 'premailer-rails'
-gem 'redcarpet'
-gem 'redis'
-gem 'sentry-raven'
-gem 'sitemap_generator'
+gem 'invisible_captcha', '~> 1.0'
+gem 'leaflet-rails', '~> 1.6.0'
+gem 'pagy', '~> 3.7.5'
+gem 'paper_trail', '~> 10.3'
+gem 'paper_trail-association_tracking', '~> 2.0'
+gem 'premailer-rails', '~> 1.11'
+gem 'redcarpet', '~> 3.5'
+gem 'redis', '~> 4.1'
+gem 'sentry-raven', '~> 3.0'
+gem 'sitemap_generator', '~> 6.1'
 gem 'timezone', '~> 1.0'
 # gem 'trix-rails', require: 'trix'
-gem 'httparty'
+gem 'httparty', '~> 0.18'
 gem 'nokogiri', '>= 1.10.4'
 
 # API
@@ -116,7 +116,7 @@ group :development do
 
   # Capistrano gems
   gem 'bcrypt_pbkdf'
-  gem 'capistrano', '~> 3.10', require: false
+  gem 'capistrano', '= 3.12.1', require: false
   gem 'capistrano-bundler', require: false
   gem 'capistrano-passenger', require: false
   gem 'capistrano-rails', '~> 1.4', require: false
