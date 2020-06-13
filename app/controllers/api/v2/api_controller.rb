@@ -8,9 +8,12 @@ module Api
       private
 
       def authorization
-        jwt_token = request.headers['Authorization'].gsub(/Bearer /,"")
-        return false if jwt_token.nil?
+        jwt_token = request.headers['Authorization']
+        if jwt_token.nil?
+          render json: { error: 'Mankas kodo' }, status: 401 and return false
+        end
 
+        jwt_token = jwt_token.gsub(/Bearer /,"")
         begin
           payload = JWT.decode(jwt_token, Rails.application.secrets.secret_key_base)[0]
           @user ||= User.find(payload['user_id'])
