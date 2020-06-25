@@ -1,18 +1,31 @@
-%p
-  Saluton.
+%br
+%table
+  %tbody
+    %tr
+      %td.content{colspan: 2}
+        %p
+          Saluton.
 
-  Iu havas demandon aŭ raportas problemon pri la evento "#{link_to @evento.title, event_url(@evento.ligilo)}", kiun vi administras
-  en Eventa Servo. Ĉu vi povas kontroli tion kaj korekti, se necese?
+        %p
+          Iu havas demandon aŭ raportas problemon pri la evento "#{link_to @evento.title, event_url(@evento.ligilo)}", kiun vi administras
+          en Eventa Servo. Ĉu vi povas kontroli tion kaj korekti, se necese?
 
-%p Jen la mesaĝo:
+        %p Jen la mesaĝo:
 
-%p
-  <strong>Nomo:</strong> #{@informoj[:name]}
-  %br
-  <strong>Retpoŝtadreso:</strong> #{@informoj[:email]}
-  %br
-  <strong>Mesaĝo:</strong> #{@informoj[:message]}
+        %p
+          <strong>Nomo:</strong> #{@informoj[:name]}
+          %br
+          <strong>Retpoŝtadreso:</strong> #{@informoj[:email]}
+          %br
+          <strong>Mesaĝo:</strong> #{@informoj[:message]}
 
-%p Dankon
+        %p Dankon
 
-%hr
+
+    %tr.footer
+      %td
+        = link_to image_tag('https://eventaservo.org/eventa_servo_logo.png', size: 48), 'https://eventaservo.org'
+      %td
+        Eventa Servo estas senpaga servo de UEA kaj TEJO. Ĉu ĝi plaĉas al vi?
+        Subteni retajn agantojn, ekzemple per 1 EUR semajne, eblas per la
+        fonduso #{link_to 'Instigo-Liberapay', 'https://liberapay.com/instigo'}.
