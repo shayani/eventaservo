@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Api
-  module V2
+  module V3
     class ApiController < ApplicationController
       before_action :authorization
 
