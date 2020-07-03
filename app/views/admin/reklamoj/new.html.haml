@@ -1,0 +1,12 @@
+.box-white
+  .lead Krei novan reklamon
+  %p Bild-grandeco: 400x200 px
+
+  = form_with model: @ad, method: :post, url: admin_reklamoj_index_url, local: true do |f|
+    .form-group
+      = f.label :event_id, 'Evento'
+      = f.select(:event_id, options_from_collection_for_select(@events, :id, :title), {}, class: 'form-control select2-input')
+    = f.file_field :image, class: 'form-control-file', accept: 'image/*', required: true
+    .buttons-footer
+      = link_to 'Nuligi', admin_reklamoj_index_url, class: 'button-cancel'
+      = f.submit 'Registri', class: 'button-submit'

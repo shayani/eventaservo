@@ -1,0 +1,16 @@
+.d-flex.justify-content-around
+  = link_to event_url(@reklamoj.first.event.ligilo) do
+    = image_tag @reklamoj.first.image.variant(resize_to_limit: [200, 100]).processed, class: 'reklam-bildo'
+
+  - if @reklamoj.count >= 2
+    = link_to event_url(@reklamoj.second.event.ligilo), class: 'd-none d-sm-block' do
+      = image_tag @reklamoj.second.image.variant(resize_to_limit: [200, 100]).processed, class: 'reklam-bildo'
+
+  - if @reklamoj.count >= 3
+    = link_to event_url(@reklamoj.third.event.ligilo), class: 'd-none d-md-block' do
+      = image_tag @reklamoj.third.image.variant(resize_to_limit: [200, 100]).processed, class: 'reklam-bildo'
+
+  - if @reklamoj.count >= 4
+    = link_to event_url(@reklamoj.fourth.event.ligilo), class: 'd-none d-lg-block' do
+      = image_tag @reklamoj.fourth.image.variant(resize_to_limit: [200, 100]).processed, class: 'reklam-bildo'
+%br

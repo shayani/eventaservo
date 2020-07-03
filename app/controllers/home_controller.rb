@@ -14,6 +14,7 @@ class HomeController < ApplicationController
     @today_events  = @events.today.includes(:country).includes(:organizations)
 
     @events = @events.not_today.includes(%i[country organizations])
+    @reklamoj = Ad.all.sample(4)
 
     if cookies[:vidmaniero] == 'kartoj' # Paghado
       @kvanto_venontaj_eventoj = @events.count

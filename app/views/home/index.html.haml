@@ -33,6 +33,7 @@
 
     .d-flex.justify-content-center
       = render "home/uzanta_horzono"
+    = render partial: 'home/reklamoj' if Ad.any?
     = render partial: 'events/okazantaj'
     = display_events_by_style
 

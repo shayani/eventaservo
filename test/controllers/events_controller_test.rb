@@ -10,8 +10,19 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
 
   test 'devas listigi la validajn kontinentajn eventojn' do
     valid_continents = %w[
-      /Afriko /afriko /Ameriko /ameriko /Azio /azio /Euxropo /euxropo /E%C5%ADropo /e%C5%ADropo
-      /Oceanio /oceanio /Reta /reta
+      /Afriko
+      /afriko
+      /Ameriko
+      /ameriko
+      /Azio
+      /azio
+      /Euxropo
+      /euxropo
+      /E%C5%ADropo
+      /e%C5%ADropo
+      /Oceanio
+      /oceanio
+      /Reta
     ]
 
     create(:lando, :brazilo)
@@ -24,6 +35,12 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
       get continent
       assert_response :success
     end
+  end
+
+  test 'redirektas /reta al /Reta' do
+    create(:lando, :reta)
+    get '/reta'
+    assert_redirected_to '/Reta'
   end
 
   test 'devas montri la ĉefpaĝon se la kontinento ne ekzistas' do

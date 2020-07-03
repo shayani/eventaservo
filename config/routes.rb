@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get '/eventoj/:code', to: redirect('/e/%{code}')
   get '/vidmaniero/:view_style', to: redirect('/v/%{view_style}')
   get '/e/nova', to: redirect('/e/new')
+  get '/reta', to: redirect('/Reta')
 
   # API
   namespace :api do
@@ -100,6 +101,7 @@ Rails.application.routes.draw do
     get 'analizado_lau_sistemoj', to: 'analizado#lau_sistemoj'
     get 'analizado_lau_vidmaniero', to: 'analizado#lau_vidmaniero'
     get 'analizado_lau_tago', to: 'analizado#lau_tago'
+    resources :reklamoj
   end
 
   # Aldonaĵoj

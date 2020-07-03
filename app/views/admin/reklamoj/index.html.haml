@@ -1,0 +1,14 @@
+.box-white.small
+  .lead
+    Reklamoj
+    = link_to icon('fas', 'plus-circle'), new_admin_reklamoj_url, class: 'small fg-color-green'
+  .row
+    - @ads.each do |r|
+      .col-12.col-md-6.col-lg-4
+        .card.m-2.align-items-center
+          - if r.image.attached?
+            = image_tag r.image, class: 'card-img-top reklam-bildo'
+          .card-body
+            %h5.card-title= r.event.title
+            %p.card-text= r.event.description
+            = link_to 'Forviŝi', admin_reklamoj_url(r), method: :delete, data: { confirm: 'Ĉu vi certas?' } , class: 'fg-color-red'

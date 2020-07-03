@@ -10,6 +10,7 @@ RUN apt-get update \
   postgresql-client \
   postgresql-server-dev-all \
   nodejs \
+  nano \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
