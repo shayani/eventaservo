@@ -14,7 +14,12 @@
       %meta{content: 'website', property: 'og:type'}
       %meta{content: request.original_url, property: 'og:url'}
       %meta{content: 'Eventa Servo', property: 'og:title'}
-      %meta{content: 'La sistemo por diskonigi esperantajn eventojn tutmonde!', property: 'og:description'}
+
+      - if request.path == '/users/sign_up'
+        %meta{content: 'Mi invitas vin registriĝi. Vi povos tiam mem aldoni kaj ŝanĝi eventojn.', property: 'og:description'}
+      - else
+        %meta{content: 'La sistemo por diskonigi esperantajn eventojn tutmonde!', property: 'og:description'}
+
       %meta{content: image_url('eventa_servo_facebook.jpg'), property: 'og:image'}
       %meta{content: image_url('eventa_servo_facebook.jpg'), property: 'og:image:secure_url'}
       %meta{content: 'Eventa Servo', property: 'og:image:alt'}
