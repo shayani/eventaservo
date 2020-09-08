@@ -8,7 +8,7 @@ ruby '~> 2.6'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0'
 # Use Puma as the app server
-gem 'puma', '>= 4.3.1'
+gem 'puma', '~> 5.0.0.beta1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 6'
 # Use Uglifier as compressor for JavaScript assets
@@ -50,7 +50,6 @@ gem 'coffee-rails'
 # gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-gem 'yard'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -99,8 +98,8 @@ group :development, :test do
   gem 'faker'
   gem 'rake'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  # gem 'spring'
+  # gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :development do

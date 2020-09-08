@@ -17,6 +17,19 @@ module UsersHelper
       else
         'nekonata.jpg'
       end
-    image_tag image, size: 40, class: 'profile-picture' if image
+    image_tag image, size: 40, class: 'user-photo-rounded' if image
   end
+
+  def display_user_image_profile(user)
+    image =
+      if user.picture.attached?
+        url_for(user.picture.variant(resize: '162x162'))
+      elsif user.image?
+        user.image
+      else
+        'nekonata.jpg'
+      end
+    image_tag image, size: 162, class: 'profile-picture' if image
+  end
+
 end

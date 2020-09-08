@@ -12,9 +12,13 @@ class User < ApplicationRecord
 
   has_one_attached :picture
   store_accessor :mailings, :weekly_summary
+  store_accessor :instruo, :instruisto
+  store_accessor :prelego, :preleganto
+  store_accessor :ligiloj, [:youtube, :telegram, :instagram, :facebook, :vk]
 
   before_save :generate_username, if: :new_record?
   before_save :subscribe_mailings, if: :new_record?
+  before_save :sanitize_links
 
   has_many :events
   belongs_to :country, inverse_of: :users
@@ -27,6 +31,7 @@ class User < ApplicationRecord
 
   scope :receives_weekly_summary, -> { where('mailings @> ?', { weekly_summary: '1' }.to_json) }
   scope :admins, -> { where(admin: true) }
+  scope :instruistoj, -> { where("instruo ->> 'instruisto' = 'true'") }
 
   def self.from_omniauth(auth)
     if where(email: auth.info.email).exists?
@@ -75,17 +80,51 @@ class User < ApplicationRecord
     end
   end
 
+  # Kontrolas ĉu la uzanto estas administranto de organizo.
+  #
+  # @param [Object] organizo Organizo
+  # @return [Boolean] se la uzanto estas administranto
+  # @note Ĉiam respondas +true+ se la uzanto estas ES-Admin.
   def administranto?(organizo)
     (in? organizo.administrantoj) || admin
   end
 
+  # Kontrolas ĉu la uzanto estas membro de organizo.
+  #
+  # @param [Object] organizo Organizo
+  # @return [Boolean] se la uzanto estas administranto
   def membro?(organizo)
     (in? organizo.membroj)
+  end
+
+  # Kontras ĉu la uzanto havas ian publikan kontaktan informon
+  #
+  # @return [Boolean]
+  # @since 2.15
+  def havas_publikajn_kontaktojn?
+    youtube.present? or telegram.present? or instagram.present?
   end
 
   private
 
     def subscribe_mailings
       self.weekly_summary = '1'
+    end
+
+    def sanitize_links
+      return if ligiloj.keys.empty?
+
+      ligiloj.keys.each do |site|
+        next if site.empty?
+
+        address = ligiloj[site]
+        if address[%r{\Ahttp:\/\/}] || address[%r{\Ahttps:\/\/}]
+          address.strip
+        elsif address.strip.empty?
+          nil
+        else
+          ligiloj[site] = "https://#{address.strip}"
+        end
+      end
     end
 end

@@ -1,0 +1,8 @@
+.card.small.mt-2.border-warning
+  .card-header.bg-warning
+    Informoj por administrantoj
+  .card-body
+    = montras_retposhtadreson(@uzanto.email)
+    %br
+    UEA-Kodo: #{@uzanto.ueacode}
+    Naskiĝdato: #{@uzanto.birthday.strftime("%d/%m/%Y") if @uzanto.birthday}

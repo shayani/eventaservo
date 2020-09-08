@@ -26,6 +26,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
+    registras_instru_informojn
+    registras_preleg_informojn
     super
   end
 
@@ -52,7 +54,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     # If you have extra params to permit, append them to the sanitizer.
     def configure_account_update_params
-      devise_parameter_sanitizer.permit(:account_update, keys: %i[name picture city country_id weekly_summary birthday ueacode])
+      devise_parameter_sanitizer.permit(:account_update, keys: %i[name picture city country_id weekly_summary birthday ueacode about youtube telegram instagram facebook vk instruisto preleganto])
     end
 
     # The path used after sign up.
@@ -69,4 +71,36 @@ class Users::RegistrationsController < Devise::RegistrationsController
     def update_resource(resource, params)
       resource.update_without_password(params)
     end
+
+    # Alidirektas la uzanton al sia profila paĝo
+    def after_update_path_for(resource)
+      events_by_username_path(resource.username)
+    end
+
+  private
+
+    def registras_instru_informojn
+      if params[:user][:instruisto].present?
+        resource.instruisto        = true
+        resource.instruo['nivelo'] = params[:nivelo].keys
+        resource.instruo['sperto'] = params[:instru_sperto]
+      else
+        resource.instruo.delete('instruisto')
+        resource.instruo.delete('nivelo')
+        resource.instruo.delete('sperto')
+      end
+      resource.save
+    end
+
+    def registras_preleg_informojn
+      if params[:user][:preleganto].present?
+        resource.preleganto        = true
+        resource.prelego['temoj'] = params[:preleg_temoj]
+      else
+        resource.prelego.delete('preleganto')
+        resource.prelego.delete('temoj')
+      end
+      resource.save
+    end
+
 end

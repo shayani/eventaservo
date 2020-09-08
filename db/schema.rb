@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_28_124844) do
+ActiveRecord::Schema.define(version: 2020_09_05_083956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -272,6 +272,10 @@ ActiveRecord::Schema.define(version: 2020_06_28_124844) do
     t.string "authentication_token", limit: 30
     t.date "birthday"
     t.string "ueacode"
+    t.string "about"
+    t.jsonb "ligiloj", default: {}, null: false
+    t.jsonb "instruo", default: {}, null: false
+    t.jsonb "prelego", default: {}, null: false
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true

@@ -1,0 +1,24 @@
+- if @uzanto.havas_publikajn_kontaktojn?
+  .lead Kontaktoj
+  .list-group
+    - if @uzanto.youtube.present?
+      = link_to @uzanto.youtube, target: :_blank, class: 'list-group-item list-group-item-action' do
+        = image_tag('youtube-link.svg', size: 28)
+        YouTube
+    - if @uzanto.telegram.present?
+      = link_to @uzanto.telegram, target: :_blank, class: 'list-group-item list-group-item-action' do
+        = image_tag('telegram-link.svg', size: 28)
+        Telegram
+    - if @uzanto.instagram.present?
+      = link_to @uzanto.instagram, target: :_blank, class: 'list-group-item list-group-item-action' do
+        = image_tag('instagram-link.svg', size: 28)
+        Instagram
+    - if @uzanto.facebook.present?
+      = link_to @uzanto.facebook, target: :_blank, class: 'list-group-item list-group-item-action' do
+        = image_tag('facebook.svg', size: 28)
+        Facebook
+    - if @uzanto.vk.present?
+      = link_to @uzanto.vk, target: :_blank, class: 'list-group-item list-group-item-action' do
+        = image_tag('vk.svg', size: 28)
+        VKontakte
+

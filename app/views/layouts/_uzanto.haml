@@ -4,9 +4,8 @@
       %a#uzantoDropdown.nav-link.dropdown-toggle{'aria-expanded' => 'false', 'aria-haspopup' => 'true', 'data-toggle' => 'dropdown', :href => '#', :role => 'button'}
         = display_user(current_user)
       .dropdown-menu.dropdown-menu-right{'aria-labelledby' => 'uzantoDropdown'}
-        = link_to 'Pri mi', edit_user_registration_path, class: 'dropdown-item'
-        .dropdown-divider
-        = link_to 'Miaj eventoj', events_path, class: 'dropdown-item'
+        = link_to 'Mia profilo', events_by_username_path(current_user.username), class: 'dropdown-item'
+        = link_to 'Redakti profilon', edit_user_registration_path, class: 'dropdown-item'
         .dropdown-divider
         = link_to icon('fas', 'sign-out-alt', 'Elsaluti'), destroy_user_session_path, class: 'dropdown-item', method: :delete
   - else

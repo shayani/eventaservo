@@ -1,0 +1,8 @@
+- if @uzanto.instruisto
+  .lead Mi estas instruisto
+  Mi instruas al nivelo(j):
+  - @uzanto.instruo['nivelo'].each do |nivelo|
+    .badge.badge-info= nivelo.capitalize
+  %br
+  = @uzanto.instruo['sperto']
+

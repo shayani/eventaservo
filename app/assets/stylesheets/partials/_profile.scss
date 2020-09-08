@@ -1,4 +1,11 @@
-.profile-picture {
+.user-photo-rounded {
   border-radius : 20px;
   margin        : -22px 5px -19px 0;
+}
+
+.profile-picture {
+  border: solid 1px #ddd;
+  background: #fff;
+  display: inline-block;
+  padding: 4px;
 }

@@ -1,45 +1,81 @@
-.col-lg-6.offset-lg-3
-  .box-white
-    .lead Redakti vian profilon
+.col-lg-8.offset-lg-2
+  .box-white#profilo
+    .lead Redakti profilon
     = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
       = devise_error_messages!
-      .form-group
-        = f.label :name
-        = f.text_field :name, autocomplete: 'name', class: 'form-control', autofocus: true
-      .form-group
-        = f.label :email
-        = f.email_field :email, autocomplete: 'email', class: 'form-control'
+      .form-group.row
+        = f.label :name, class: 'col-form-label col-md-3'
+        .col-md-9
+          = f.text_field :name, autocomplete: 'name', class: 'form-control', autofocus: true
+      .form-group.row
+        = f.label :email, class: 'col-form-label col-md-3'
+        .col-md-9
+          = f.email_field :email, autocomplete: 'email', class: 'form-control'
 
-      .row
-        .col-lg-6
-          .form-group
-            = f.label :city
-            = f.text_field :city, autocomplete: 'city', class: 'form-control'
-        .col-lg-6
-          .form-group
-            = f.label :country_id
-            = f.select(:country_id, options_from_collection_for_select(Country.not_online, 'id', 'name', @user.country_id), {}, class: 'form-control select2-input')
+      .form-group.row
+        = f.label :about, 'Pri mi', class: 'col-form-label col-md-3'
+        .col-md-9
+          = f.text_area :about, rows: 2, class: 'form-control'
 
-      .row
-        .col-lg-6
-          .form-group
-            = f.label :birthday, 'Naskiĝdato'
-            = f.text_field :birthday, value: (resource.birthday.strftime("%d/%m/%Y") if resource.birthday?) , class: 'birthday form-control'
-        .col-lg-6
-          .form-group
-            = f.label :ueacode, 'UEA-kodo'
-            = f.text_field :ueacode, class: 'form-control', placeholder: '*ne deviga'
 
-      .form-group
-        = f.label :avatar
-        %br
-        = display_user_image(@user)
-        = f.file_field :picture, class: 'form-control-file', accept: 'image/*'
+      .form-group.row
+        = f.label :city, class: 'col-form-label col-md-3'
+        .col-md-9
+          = f.text_field :city, autocomplete: 'city', class: 'form-control'
+      .form-gorup.row
+        = f.label :country_id, class: 'col-form-label col-md-3'
+        .col-md-9
+          = f.select(:country_id, options_from_collection_for_select(Country.not_online, 'id', 'name', @user.country_id), {}, class: 'form-control select2-input')
 
-      .form-group
-        = f.label :authentication_token
-        = f.text_field :authentication_token, readonly: true, class: 'form-control'
-        .small= link_to "Krei novan API-ŝlosilon", api_v1_rekrei_api_kodon_url(current_user.id), class: 'form-text', data: { confirm: 'Ĉu vi certas? Ne eblas malfari tiun agon.' }
+      .form-group.row
+        = f.label :birthday, 'Naskiĝdato', class: 'col-form-label col-md-3'
+        .col-md-9
+          = f.text_field :birthday, value: (resource.birthday.strftime("%d/%m/%Y") if resource.birthday?) , class: 'birthday form-control'
+      .form-group.row
+        = f.label :ueacode, 'UEA-kodo',  class: 'col-form-label col-md-3'
+        .col-md-9
+          = f.text_field :ueacode, class: 'form-control', placeholder: '*ne deviga'
+
+      .text-divider Mi pretas helpi
+      .box-white
+        <instruado-form v-bind:instruo="#{resource.instruo.to_json}">
+        </instruado-form>
+        <prelego-form v-bind:prelego="#{resource.prelego.to_json}">
+        </prelego-form>
+      .text-divider Ligiloj
+      .form-group.row
+        = f.label :youtube, image_tag('youtube-link.svg', size: 24) + ' YouTube', class: 'col-md-3 col-form-label'
+        .col-md-9
+          = f.text_field :youtube, class: 'form-control'
+      .form-group.row
+        = f.label :telegram, image_tag('telegram-link.svg', size: 24) + ' Telegram', class: 'col-md-3 col-form-label'
+        .col-md-9
+          = f.text_field :telegram, class: 'form-control'
+      .form-group.row
+        = f.label :instagram, image_tag('instagram-link.svg', size: 24) + ' Instagram', class: 'col-md-3 col-form-label'
+        .col-md-9
+          = f.text_field :instagram, class: 'form-control'
+      .form-group.row
+        = f.label :facebook, image_tag('facebook.svg', size: 24) + ' Facebook', class: 'col-md-3 col-form-label'
+        .col-md-9
+          = f.text_field :facebook, class: 'form-control'
+      .form-group.row
+        = f.label :vk, image_tag('vk.svg', size: 24) + ' Vkontakte', class: 'col-md-3 col-form-label'
+        .col-md-9
+          = f.text_field :vk, class: 'form-control'
+
+
+      .form-group.row
+        = f.label :avatar, class: 'col-form-label col-md-3'
+        .col-md-9
+          = display_user_image(@user)
+          = f.file_field :picture, class: 'form-control-file', accept: 'image/*'
+
+      .form-group.row
+        = f.label :authentication_token, class: 'col-form-label col-md-3'
+        .col-md-9
+          = f.text_field :authentication_token, readonly: true, class: 'form-control'
+          .small= link_to "Krei novan API-ŝlosilon", api_v1_rekrei_api_kodon_url(current_user.id), class: 'form-text', data: { confirm: 'Ĉu vi certas? Ne eblas malfari tiun agon.' }
 
       .text-divider Organizoj
       - @user.organizoj.each do |organizo|

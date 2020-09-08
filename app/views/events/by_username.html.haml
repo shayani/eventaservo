@@ -1,45 +1,40 @@
-.row
-  .col-3
-    .box-white
-      .lead= @uzanto.name
-      = display_user_image(@uzanto)
-      .small
-        %br/
+.box-white
+  .row
+    .col-md-3
+      .text-center
+        = display_user_image_profile(@uzanto)
+    .col-md-9
+      .ml-3
+        %h1.display-4= @uzanto.name
         = montras_flagon(@uzanto.country)
         = @uzanto.country.name if @uzanto.country
         = "(#{@uzanto.city})"
-        - if user_signed_in? && current_user.admin?
-          %p
-          .bg-color-yellowLight.p-1
-            Informoj por administranto:
-            %br
-            = montras_retposhtadreson(@uzanto.email)
-            %br
-            UEA-Kodo: #{@uzanto.ueacode}
-            %br
-            Naskiĝdato: #{@uzanto.birthday.strftime("%d/%m/%Y") if @uzanto.birthday}
+        %p.small= simple_format(@uzanto.about)
+  %br
+  .row
+    .col-lg-3.col-md-12
+      = render partial: 'uzantaj_ligiloj'
+      %br
+      = render partial: 'uzantaj_organizoj'
+      = render partial: 'informoj_por_administrantoj'
 
-        - if @uzanto.organizations.size > 0
-          %p
-            %hr/
-            %b Organizoj
-            %br/
-            - @uzanto.organizations.order(:name).each do |o|
-              = link_to o.name, organization_url(o.short_name)
-              %br/
-  .col-9
-    - if @venontaj.any?
-      .box-white
-        .lead Venontaj eventoj
-        - @venontaj.order(:date_start).each do |e|
-          = link_to event_path(e.ligilo), class: 'item-row small' do
-            .col-5
-              = event_flag e
-              = "#{e.city} - #{format_date(e.komenca_dato, style: :short)}"
-            .col{class: ("cancelled" if e.cancelled)}= "#{e.title}"
+    .col-lg-9.col-md-12
+      .row
+        .col-12.col-md-6.mb-5
+          = render partial: 'users/instruist_profilo'
+        .col-12.col-md-6.mb-5
+          = render partial: 'users/prelegant_profilo'
+      - if @venontaj.any?
+        .mb-5
+          .lead Venontaj eventoj
+          - @venontaj.order(:date_start).each do |e|
+            = link_to event_path(e.ligilo), class: 'item-row small' do
+              .col-5
+                = event_flag e
+                = "#{e.city} - #{format_date(e.komenca_dato, style: :short)}"
+              .col{class: ("cancelled" if e.cancelled)}= "#{e.title}"
 
-    - if @pasintaj.any?
-      .box-white
+      - if @pasintaj.any?
         .lead Pasintaj eventoj
         - @pasintaj.order(date_start: :desc).each do |e|
           = link_to event_path(e.ligilo), class: 'item-row small' do

@@ -1,0 +1,4 @@
+.lead Organizoj
+.list-group
+  - @uzanto.organizations.order(:name).each do |o|
+    = link_to o.name, organization_url(o.short_name), class: 'list-group-item list-group-item-action small'
