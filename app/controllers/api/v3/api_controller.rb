@@ -8,7 +8,7 @@ module Api
       private
 
       def authorization
-        return true if request.env["REMOTE_ADDR"] == "127.0.0.1"
+        # return true if request.env["REMOTE_ADDR"] == "127.0.0.1"
 
         jwt_token = request.headers['Authorization']
         if jwt_token.nil?
@@ -17,7 +17,7 @@ module Api
 
         jwt_token = jwt_token.gsub(/Bearer /,"")
         begin
-          payload = JWT.decode(jwt_token, Rails.application.secrets.secret_key_base)[0]
+          payload = JWT.decode(jwt_token, Rails.application.credentials.dig(:secret_key_base))[0]
           @user ||= User.find(payload['user_id'])
         rescue Exception
           render json: { error: 'Ne valida' }, status: 401
