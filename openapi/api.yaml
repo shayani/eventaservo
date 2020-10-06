@@ -1,0 +1,63 @@
+openapi: 3.0.0
+info:
+  version: '3.0.0'
+  title: Eventa Servo
+  description:
+    Diskonigu esperantajn eventojn tutmonde!
+    Por uzi la API, vi bezonos V3 Token.
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/EventaServo/EventaServo/3.0.0
+  - description: Prov-servo de ES V3
+    url: https://v3.eventaservo.com/api/v3
+security:
+  - bearerAuth: []
+paths:
+  /eventoj:
+    get:
+      tags:
+        - Eventoj
+      responses:
+        200:
+          description: Listigas la venontajn eventojn
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Evento'
+
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    Evento:
+      type: object
+      properties:
+        titolo:
+          type: string
+          example: Tutjara memlerna kurso de Esperanto en Argentino
+        priskribo:
+          type: string
+          example: Virtuala baza kurso por komencantoj
+        urbo:
+          type: string
+          example: Buenos Aires
+        lando:
+          type: string
+          example: Argentino
+        flagKodo:
+          type: string
+          example: AR
+        reta:
+          type: boolean
+          example: false
+          description: Ĉu la evento estas reta?
+        ligilo:
+          type: string
+          example: tutjara_argentino
+          description: Ligilo /e/tutjara_argentino
