@@ -63,6 +63,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'daemons', '~> 1.3'
 gem 'delayed_job_active_record', '~> 4.1'
+gem 'delayed_job_web'
 
 gem 'rack-attack', '~> 6.2'
 gem 'rack-cors', '~> 1.1', require: 'rack/cors'
@@ -127,7 +128,6 @@ end
 group :test do
   gem 'capybara'
   gem 'factory_bot_rails'
-  gem 'minitest-reporters'
   gem 'selenium-webdriver'
   gem 'simplecov'
   gem 'vcr'

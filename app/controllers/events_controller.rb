@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
+  rescue_from ActionController::UnknownFormat do |e|
+    redirect_to root_url, flash: { error: 'Formato ne ekzistas.' }
+  end
   include Webcal
   before_action :authenticate_user!, only: %i[index new create edit update destroy nova_importado importi]
   before_action :set_event, only: %i[show edit update destroy]

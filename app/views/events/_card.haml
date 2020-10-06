@@ -2,7 +2,10 @@
   .card-body
     %h5.card-title
       = event_flag(event)
-      = link_to event.title, event_path(event.ligilo), class: ("cancelled" if event.cancelled)
+      - titolo = event.title
+      - if event.participants.size > Constants::FAJRA_EVENTO_PARTOPRENANTOJ
+        - titolo = "🔥 #{titolo}"
+      = link_to titolo, event_path(event.ligilo), class: ("cancelled" if event.cancelled)
     .card-text.text-muted
       = display_organizations_for_event(event, limited: true)
       = display_event_tags(event)

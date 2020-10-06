@@ -10,6 +10,10 @@ json.array!(@events) do |event|
     else
       "[#{event.country.code.upcase} - #{event.city}] #{event.title}"
     end
+
+  if event.participants.size > Constants::FAJRA_EVENTO_PARTOPRENANTOJ
+    title = "🔥 #{title}"
+  end
   json.title title
   # json.allDay event.samtaga? ? false : true
   json.allDay event.tuttaga?

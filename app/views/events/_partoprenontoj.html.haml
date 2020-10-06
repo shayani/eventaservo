@@ -1,0 +1,9 @@
+#partoprenantoj
+  .text-divider Partoprenontoj
+  .box-body
+    .row.text-center
+      .col-6.my-auto
+        %h1= @event.participants.size
+      .col-6.my-auto
+        <partoprenanta-butono participant="#{@event.participants.pluck(:user_id).include?(current_user.id) if current_user}" :logged="#{current_user.present?}" ligilo="#{event_toggle_participant_url(@event.ligilo)}" />
+    = render partial: 'partoprenonta_listo'

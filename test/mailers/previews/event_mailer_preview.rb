@@ -28,4 +28,8 @@ class EventMailerPreview < ActionMailer::Preview
   def nova_administranto
     EventMailer.nova_administranto(Event.venontaj.sample)
   end
+
+  def rememorigas_uzantojn_pri_evento
+    EventMailer.rememorigas_uzantojn_pri_evento(Event.venontaj.sample.id)
+  end
 end

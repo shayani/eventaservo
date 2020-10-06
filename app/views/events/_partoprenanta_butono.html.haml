@@ -1,0 +1,11 @@
+- if current_user
+  = link_to event_toggle_participant_url(@event.short_url) do
+    - if @event.participants.pluck(:user_id).include?(current_user.id)
+      %h1= icon('fas', 'user-check', class: 'fg-color-green')
+      %span.fg-color-green MI PARTOPRENOS!
+    - else
+      %h1= icon('fas', 'user-check', class: 'fg-color-gray')
+      %span.fg-color-gray Mi volas partopreni
+- else
+  = link_to 'Ensalutu', '/users/sign_in', class: 'font-weight-bold'
+  por informi vian partoprenon!

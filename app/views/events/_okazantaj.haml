@@ -8,7 +8,10 @@
           .okazantaj-eventoj
             %h6.text-truncate
               = event_flag(evento)
-              = link_to evento.title, event_path(evento.ligilo), class: ("cancelled" if evento.cancelled)
+              - titolo = evento.title
+              - if evento.participants.size > 5
+                - titolo = "🔥 #{titolo}"
+              = link_to titolo, event_path(evento.ligilo), class: ("cancelled" if evento.cancelled)
               .small.pl-4
                 = evento.komenca_horo(horzono: (cookies[:horzono] || evento.time_zone)) unless (evento.multtaga? or evento.tuttaga?)
                 = evento.universala? ? 'Reta' : "#{evento.city} (#{evento.country.code.upcase})"

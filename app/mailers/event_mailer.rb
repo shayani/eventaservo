@@ -81,4 +81,11 @@ class EventMailer < ApplicationMailer
 
     mail(to: to, bcc: bcc, subject: 'Vi estas nova eventa administranto')
   end
+
+  def rememorigas_uzantojn_pri_evento(evento_id)
+    @evento = Event.find(evento_id)
+    to = 'shayani@gmail.com'
+
+    mail(to: to, subject: "[ES] #{@evento.title} baldaŭ komenciĝos")
+  end
 end

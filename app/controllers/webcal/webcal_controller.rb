@@ -21,7 +21,7 @@ module Webcal
       redirect_to root_url if params[:short_name].blank?
 
       o = Organization.find_by(short_name: params[:short_name])
-      redirect_to root_url, flash: { notice: 'Organiza nomo ne ekzistas' } if o.nil?
+      redirect_to root_url, flash: { error: 'Organizo ne ekzistas' } and return if o.nil?
 
       eventoj = Event.lau_organizo(o.short_name).for_webcal
 

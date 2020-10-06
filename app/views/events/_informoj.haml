@@ -10,6 +10,8 @@
           #vue-eventa-mapo
             %eventa-mapo{"v-bind:latitude": @event.latitude, "v-bind:longitude": @event.longitude}
 
+    = render partial: 'partoprenontoj'
+
     %p
     .text-divider Administranto
     - if @event.organizations.any?
